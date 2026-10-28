@@ -12,7 +12,7 @@ unsafe fn init_array<const M: usize, const N: usize>(
     *float_n = n as DataType;
     for i in 0..m {
         for j in 0..n {
-            data[i][j] = (i * j) as DataType / (N + i) as DataType;
+            data[i][j] = (i * j) as DataType / N as DataType + i as DataType;
         }
     }
 }
