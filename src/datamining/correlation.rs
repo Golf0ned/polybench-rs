@@ -12,7 +12,7 @@ unsafe fn init_array<const M: usize, const N: usize>(
     *float_n = n as DataType;
     for i in 0..n {
         for j in 0..m {
-            data[i][j] = (i * j) as DataType / (M + i) as DataType;
+            data[i][j] = (i * j) as DataType / N as DataType + i as DataType;
         }
     }
 }
@@ -40,10 +40,10 @@ unsafe fn kernel_correlation<const M: usize, const N: usize>(
         stddev[j] = 0.0;
         for i in 0..n {
             stddev[j] += (data[i][j] - mean[j]) * (data[i][j] - mean[j]);
-            stddev[j] /= float_n;
-            stddev[j] = stddev[j].sqrt();
-            stddev[j] = if stddev[j] <= eps { 1.0 } else { stddev[j] };
         }
+        stddev[j] /= float_n;
+        stddev[j] = stddev[j].sqrt();
+        stddev[j] = if stddev[j] <= eps { 1.0 } else { stddev[j] };
     }
 
     for i in 0..n {
