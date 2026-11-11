@@ -9,7 +9,5 @@ fn bench_and_print<const TSTEPS: usize, const N: usize>() {
 }
 
 fn main() {
-    bench_and_print::<125, 325>();
-    bench_and_print::<250, 650>();
     bench_and_print::<500, 1300>();
 }
