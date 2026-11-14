@@ -7,5 +7,5 @@ fn bench_and_print<const TSTEPS: usize, const N: usize>() {
 }
 
 fn main() {
-    bench_and_print::<500, 2000>();
+    bench_and_print::<1000, 4000>();
 }

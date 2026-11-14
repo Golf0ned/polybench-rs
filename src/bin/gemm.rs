@@ -7,5 +7,5 @@ fn bench_and_print<const NI: usize, const NJ: usize, const NK: usize>() {
 }
 
 fn main() {
-    bench_and_print::<1000, 1100, 1200>();
+    bench_and_print::<2000, 2300, 2600>();
 }

@@ -13,5 +13,5 @@ fn bench_and_print<
 }
 
 fn main() {
-    bench_and_print::<800, 900, 1000, 1100, 1200>();
+    bench_and_print::<1600, 1800, 2000, 2200, 2400>();
 }
