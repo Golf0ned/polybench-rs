@@ -47,7 +47,9 @@ unsafe fn kernel_gemm<const NI: usize, const NJ: usize, const NK: usize>(
     for i in 0..ni {
         for j in 0..nj {
             C[i][j] *= beta;
-            for k in 0..nk {
+        }
+        for k in 0..nk {
+            for j in 0..nj {
                 C[i][j] += alpha * A[i][k] * B[k][j];
             }
         }
